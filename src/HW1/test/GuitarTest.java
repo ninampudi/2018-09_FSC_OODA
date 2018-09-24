@@ -7,10 +7,18 @@ import org.junit.jupiter.api.Test;
 
 import HW1.Guitar;
 
+/**
+ * @author Navya Inampudi
+ * This class is to JUnit Test for Guitar Class
+ */
 class GuitarTest {
 	
 	Guitar testGuitar;
 
+	/**
+	 *  This method is to Set-up the guitar objects for testing
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception {
 		this.testGuitar = new Guitar(
@@ -24,6 +32,9 @@ class GuitarTest {
 				);
 	}
 
+	/**
+	 * This method is to test the Serial Number JUnit Test.
+	 */
 	@Test
 	void testGetSerialNumber() {
 		String expected = "AB123";
@@ -31,6 +42,9 @@ class GuitarTest {
 		assertEquals(expected, returned, String.format("Serial number %s != %s", expected, returned));
 	}
 
+	/**
+	 * This method is to test the Get Price JUnit Test.
+	 */
 	@Test
 	void testGetPrice() {
 		double expected = 203.35;
@@ -38,6 +52,9 @@ class GuitarTest {
 		assertEquals(expected, returned, 0.01, String.format("Price %f != %f", expected, returned));
 	}
 
+	/**
+	 * This method is to test the Set Price JUnit Test.
+	 */
 	@Test
 	void testSetPrice() {
 		double expected = 225.10;
@@ -46,6 +63,9 @@ class GuitarTest {
 		assertEquals(expected, returned, String.format("Price %f != %f", expected, returned));
 	}
 
+	/**
+	 * This method is to test the Manufacturer JUnit Test.
+	 */
 	@Test
 	void testGetManufacturer() {
 		String expected = "Gibson";
@@ -53,6 +73,9 @@ class GuitarTest {
 		assertEquals(expected, returned, String.format("Manufacturer %s != %s", expected, returned));
 	}
 
+	/**
+	 * This method is to test the Model JUnit Test.
+	 */
 	@Test
 	void testGetModel() {
 		String expected = "EasyLearn";
@@ -60,6 +83,9 @@ class GuitarTest {
 		assertEquals(expected, returned, String.format("Model %s != %s", expected, returned));
 	}
 
+	/**
+	 * This method is to test the Type JUnit Test.
+	 */
 	@Test
 	void testGetType() {
 		String expected = "electric";
@@ -67,6 +93,9 @@ class GuitarTest {
 		assertEquals(expected, returned, String.format("Type %s != %s", expected, returned));
 	}
 
+	/**
+	 * This method is to test the BackWood JUnit Test.
+	 */
 	@Test
 	void testGetBackWood() {
 		String expected = "Maple";
@@ -74,6 +103,9 @@ class GuitarTest {
 		assertEquals(expected, returned, String.format("Back wood %s != %s", expected, returned));
 	}
 
+	/**
+	 * This method is to test the TopWood JUnit Test.
+	 */
 	@Test
 	void testGetTopWood() {
 		String expected = "Adirondack";
