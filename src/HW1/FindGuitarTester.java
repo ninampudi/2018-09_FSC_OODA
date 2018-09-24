@@ -1,7 +1,16 @@
 package HW1;
+/**
+ * @author Navya Alaparthi
+ * This class is to Test the Guitar Object
+ *
+ */
 public class FindGuitarTester {
 
-  public static void main(String[] args) {
+  /**
+   * Main method to test Guitar object
+ * @param args
+ */
+public static void main(String[] args) {
     // Set up Rick's guitar inventory
     Inventory inventory = new Inventory();
     initializeInventory(inventory);
@@ -21,7 +30,11 @@ public class FindGuitarTester {
     }
   }
 
-  private static void initializeInventory(Inventory inventory) {
+  /**
+   * This method is to initialize Inventory object to Add Guitar objects 
+   * @param inventory
+   */
+private static void initializeInventory(Inventory inventory) {
     inventory.addGuitar("11277", 3999.95, "Collings", "CJ", "acoustic",
                         "Indian Rosewood", "Sitka");
     inventory.addGuitar("V95693", 1499.95, "Fender", "Stratocastor", "electric",
