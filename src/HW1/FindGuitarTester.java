@@ -1,15 +1,23 @@
-package HW1;
 /**
- * @author Navya Alaparthi
- * This class is to Test the Guitar Object
+ * Class: Object-Oriented Design and Analysis
+ * Professor: Orlando Montalvo
+ * Assignment: HW 1
+ * Student: Navya Inampudi
+ * 
+ * Date: 2018-10-20
+ */
+
+package HW1;
+
+/**
+ * FindGuitarTester searches the inventory by Guitar Manufacturer's for Erin
+ * @author Navya Inampudi
  *
  */
 public class FindGuitarTester {
-
-  /**
-   * Main method to test Guitar object
- * @param args
- */
+	/**
+	 * Search the inventory for the specified Manufactuer's 
+	 */
 public static void main(String[] args) {
     // Set up Rick's guitar inventory
     Inventory inventory = new Inventory();
@@ -30,10 +38,10 @@ public static void main(String[] args) {
     }
   }
 
-  /**
-   * This method is to initialize Inventory object to Add Guitar objects 
-   * @param inventory
-   */
+/**
+ * Setup inventory with the list of Guitar's to be sold
+ * @param inventory Add Guitars to the inventory
+ */
 private static void initializeInventory(Inventory inventory) {
     inventory.addGuitar("11277", 3999.95, "Collings", "CJ", "acoustic",
                         "Indian Rosewood", "Sitka");

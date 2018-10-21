@@ -1,43 +1,53 @@
-package HW1.test.edu.fitchburgstate.csc7400;
+/**
+ * Class: Object-Oriented Design and Analysis
+ * Professor: Orlando Montalvo
+ * Assignment: HW 1
+ * Student: Navya Inampudi
+ * 
+ * Date: 2018-10-20
+ */
 
+package HW1.test.edu.fitchburgstate.csc7400;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import HW1.edu.fitchburgstate.csc7400.Guitar.manufacturer;
-import HW1.edu.fitchburgstate.csc7400.Guitar.type;
 import HW1.edu.fitchburgstate.csc7400.GuitarSpec;
-import HW1.edu.fitchburgstate.csc7400.Guitar.topWood;
-import HW1.edu.fitchburgstate.csc7400.Guitar.backWood;
 import HW1.edu.fitchburgstate.csc7400.Guitar;
 import HW1.edu.fitchburgstate.csc7400.Inventory;
+import HW1.edu.fitchburgstate.csc7400.GuitarSpec.manufacturer;
+import HW1.edu.fitchburgstate.csc7400.GuitarSpec.type;
+import HW1.edu.fitchburgstate.csc7400.GuitarSpec.topWood;
+import HW1.edu.fitchburgstate.csc7400.GuitarSpec.backWood;
 
 /**
+ * JUnit Test for Inventory Class
  * @author Navya Inampudi
- * This class is to JUnit Test for Inventory Class
+ * 
  */
 class InventoryTest {
 	
 	Guitar testGuitar;
 	
+	GuitarSpec testGuitarSpec, addGuitarSpec, addGuitarSpec2;
+	
 	/**
-	 * This method is to set the Guitar Object for JUnit Test
+	 * Instantiate testGuitar Object, to be used for Validating in below scenarios
 	 * @throws Exception
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
-		this.testGuitar = new Guitar(
-				"Test", // serial number
-				100.00, // store price
-				//"ABCD", // Manufacturer
-				manufacturer.Martin, // Manufacturer
-				"XYZ", // Manufacturer model
-				type.Electric, // Type of Guitar
-				backWood.Maple, // Face wood);, // Back wood
-				topWood.Maple
-				);
+		
+		this.testGuitarSpec = new GuitarSpec(manufacturer.Martin, 
+				type.Electric, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
+		
+		this.testGuitar = new Guitar("1700-400", 699.00, testGuitarSpec);
+		
 	}
 
 	
@@ -46,19 +56,19 @@ class InventoryTest {
 	 */
 	@Test
 	void testaddGuitar() {
+		
 		Guitar expected = this.testGuitar;
 		Inventory TestObj = new Inventory();
-		TestObj.addGuitar(
-						"Test", // serial number
-						100.00, // store price
-						//"ABCD", // Manufacturer
-						manufacturer.Martin, // Manufacturer
-						"XYZ", // Manufacturer model
-						type.Electric, // Type of Guitar
-						backWood.Maple, // Face wood);, // Back wood
-						topWood.Maple
-				);
-		Guitar returned = TestObj.getGuitar("Test");
+		
+		this.addGuitarSpec = new GuitarSpec(manufacturer.Martin, 
+				type.Electric, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
+		
+		TestObj.addGuitar("1700-400", 699.00, addGuitarSpec);
+		
+		Guitar returned = TestObj.getGuitar("1700-400");
 		assertSame(expected.getSerialNumber(), returned.getSerialNumber());
 		assertEquals(1, TestObj.guitars.size());	
 		
@@ -71,30 +81,25 @@ class InventoryTest {
 	void testaddGuitarsMultiple() {
 		Guitar expected = this.testGuitar;
 		Inventory TestObj = new Inventory();
-		TestObj.addGuitar(
-						"Test", // serial number
-						100.00, // store price
-						//"ABCD", // Manufacturer
-						manufacturer.Martin, // Manufacturer
-						"XYZ", // Manufacturer model
-						type.Electric, // Type of Guitar
-						backWood.Maple, // Face wood);, // Back wood
-						topWood.Maple
-				);
-		Guitar returned = TestObj.getGuitar("Test");
+		
+		this.addGuitarSpec = new GuitarSpec(manufacturer.Martin, 
+				type.Electric, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
+		this.addGuitarSpec2 = new GuitarSpec(manufacturer.Martin, 
+				type.Electric, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
+		
+		TestObj.addGuitar("1700-400", 699.00, addGuitarSpec);
+		
+		Guitar returned = TestObj.getGuitar("1700-400");
 		assertSame(expected.getSerialNumber(), returned.getSerialNumber());
 		assertEquals(1, TestObj.guitars.size());	
 		
-		TestObj.addGuitar(
-				"Test11", // serial number
-				100.00, // store price
-				//"ABCD", // Manufacturer
-				manufacturer.Martin, // Manufacturer
-				"XYZ", // Manufacturer model
-				type.Electric, // Type of Guitar
-				backWood.Maple, // Face wood);, // Back wood
-				topWood.Maple
-		);
+		TestObj.addGuitar("1700-402", 699.00, addGuitarSpec2);
 		
 		assertEquals(2, TestObj.guitars.size());	
 		
@@ -108,27 +113,22 @@ class InventoryTest {
 	void testGetGuitars() {
 		Guitar expected = this.testGuitar;
 		Inventory TestObj = new Inventory();
-		TestObj.addGuitar(
-						"Test", // serial number
-						100.00, // store price
-						//"ABCD", // Manufacturer
-						manufacturer.Martin, // Manufacturer
-						"XYZ", // Manufacturer model
-						type.Electric, // Type of Guitar
-						backWood.Maple, // Face wood);, // Back wood
-						topWood.Maple
-				);
-		TestObj.addGuitar(
-				"TestGetGuitar1", // serial number
-				100.00, // store price
-				//"ABCD", // Manufacturer
-				manufacturer.Martin, // Manufacturer
-				"XYZ", // Manufacturer model
-				type.Electric, // Type of Guitar
-				backWood.Maple, // Face wood);, // Back wood
-				topWood.Maple
-		);
-		Guitar returned = TestObj.getGuitar("Test");
+		
+		this.addGuitarSpec = new GuitarSpec(manufacturer.Martin, 
+				type.Electric, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
+		this.addGuitarSpec2 = new GuitarSpec(manufacturer.Martin, 
+				type.Acoustic, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
+		
+		TestObj.addGuitar("1700-400", 699.00, addGuitarSpec);
+		TestObj.addGuitar("1700-403", 699.00, addGuitarSpec2);
+		
+		Guitar returned = TestObj.getGuitar("1700-400");
 		assertSame(expected.getSerialNumber(), returned.getSerialNumber());
 		assertEquals(2, TestObj.guitars.size());	
 		
@@ -139,36 +139,28 @@ class InventoryTest {
 	 * This method is to Test the Search Guitar passing manufacturer using JUnit Test
 	 */
 	@Test
-	void testSearchGuitars1() {
+	void testSearchGuitars_manufacturer() {
 		
 		Inventory TestObj = new Inventory();
-		TestObj.addGuitar(
-						"Test", // serial number
-						100.00, // store price
-						//"ABCD", // Manufacturer
-						manufacturer.Martin, // Manufacturer
-						"XYZ", // Manufacturer model
-						type.Electric, // Type of Guitar
-						backWood.Maple, // Face wood);, // Back wood
-						topWood.Maple
-				);
-		TestObj.addGuitar(
-				"Test11", // serial number
-				100.00, // store price
-				//"ABCD", // Manufacturer
-				manufacturer.Gibson, // Manufacturer
-				"XYZ", // Manufacturer model
-				type.Electric, // Type of Guitar
-				backWood.Maple, // Face wood);, // Back wood
-				topWood.Maple
-		);
+		GuitarSpec testGuitarSpec = new GuitarSpec();
 		
-		Guitar testItem = new Guitar();
-		testItem.setManufacturer(manufacturer.Gibson);
-		Guitar returned = TestObj.search(testItem);
+		this.addGuitarSpec = new GuitarSpec(manufacturer.Martin, 
+				type.Electric, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
+		this.addGuitarSpec2 = new GuitarSpec(manufacturer.Gibson, 
+				type.Acoustic, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
 		
-		assertSame("Test11", returned.getSerialNumber());
+		TestObj.addGuitar("1700-400", 699.00, addGuitarSpec);
+		TestObj.addGuitar("1700-401", 699.00, addGuitarSpec2);
 		
+		testGuitarSpec.setManufacturer(manufacturer.Gibson);
+		Guitar returned = TestObj.search(testGuitarSpec);
+		assertSame("1700-401", returned.getSerialNumber());
 		
 	}
 	
@@ -177,73 +169,59 @@ class InventoryTest {
 	 * for multuple Guitar objects using JUnit Test
 	 */
 	@Test
-	void testSearchGuitars2() {
+	void testSearchGuitars_manufacturer2() {
 		
 		Inventory TestObj = new Inventory();
-		TestObj.addGuitar(
-						"Test", // serial number
-						100.00, // store price
-						//"ABCD", // Manufacturer
-						manufacturer.Martin, // Manufacturer
-						"XYZ", // Manufacturer model
-						type.Electric, // Type of Guitar
-						backWood.Maple, // Face wood);, // Back wood
-						topWood.Maple
-				);
-		TestObj.addGuitar(
-				"Test112", // serial number
-				100.00, // store price
-				//"ABCD", // Manufacturer
-				manufacturer.Fender, // Manufacturer
-				"XYZ", // Manufacturer model
-				type.Electric, // Type of Guitar
-				backWood.Maple, // Face wood);, // Back wood
-				topWood.Maple
-		);
+		GuitarSpec testGuitarSpec = new GuitarSpec();
 		
-		Guitar testItem = new Guitar();
-		testItem.setManufacturer(manufacturer.Fender);
-		Guitar returned = TestObj.search(testItem);
+		this.addGuitarSpec = new GuitarSpec(manufacturer.Martin, 
+				type.Electric, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
+		this.addGuitarSpec2 = new GuitarSpec(manufacturer.Fender, 
+				type.Acoustic, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
 		
-		assertSame("Test112", returned.getSerialNumber());
+		TestObj.addGuitar("1700-400", 699.00, addGuitarSpec);
+		TestObj.addGuitar("1700-401", 699.00, addGuitarSpec2);
 		
+		testGuitarSpec.setManufacturer(manufacturer.Fender);
+		Guitar returned = TestObj.search(testGuitarSpec);
 		
+		assertSame("1700-401", returned.getSerialNumber());
+			
 	}
 	
 	/**
 	 * This method is to Test the Search Guitar passing type using JUnit Test
 	 */
 	@Test
-	void testSearchGuitars3() {
+	void testSearchGuitars_type() {
 		
 		Inventory TestObj = new Inventory();
-		TestObj.addGuitar(
-						"Test", // serial number
-						100.00, // store price
-						//"ABCD", // Manufacturer
-						manufacturer.Martin, // Manufacturer
-						"XYZ", // Manufacturer model
-						type.Electric, // Type of Guitar
-						backWood.Maple, // Face wood);, // Back wood
-						topWood.Maple
-				);
-		TestObj.addGuitar(
-				"Test1123", // serial number
-				100.00, // store price
-				//"ABCD", // Manufacturer
-				manufacturer.Fender, // Manufacturer
-				"XYZ", // Manufacturer model
-				type.Electric, // Type of Guitar
-				backWood.Maple, // Face wood);, // Back wood
-				topWood.Maple
-		);
+		GuitarSpec testGuitarSpec = new GuitarSpec();
 		
-		Guitar testItem = new Guitar();
-		testItem.setType(type.Electric);;
-		Guitar returned = TestObj.search(testItem);
+		this.addGuitarSpec = new GuitarSpec(manufacturer.Martin, 
+				type.Electric, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
+		this.addGuitarSpec2 = new GuitarSpec(manufacturer.Fender, 
+				type.Acoustic, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
 		
-		assertSame("Test", returned.getSerialNumber());
+		TestObj.addGuitar("1700-400", 699.00, addGuitarSpec);
+		TestObj.addGuitar("1700-401", 699.00, addGuitarSpec2);
 		
+		testGuitarSpec.setType(type.Electric);
+		
+		Guitar returned = TestObj.search(testGuitarSpec);
+		assertSame("1700-400", returned.getSerialNumber());
 		
 	}
 	
@@ -251,70 +229,34 @@ class InventoryTest {
 	 * This method is to Test the Search Guitar passing all enum parameters using JUnit Test
 	 */
 	@Test
-	void testSearchGuitars4() {
+	void testSearchGuitars_custom() {
 		
 		Inventory TestObj = new Inventory();
-		TestObj.addGuitar(
-						"Test", // serial number
-						100.00, // store price
-						//"ABCD", // Manufacturer
-						manufacturer.Fender, // Manufacturer
-						"XYZ", // Manufacturer model
-						type.Electric, // Type of Guitar
-						backWood.Alder, // Face wood);, // Back wood
-						topWood.Alder
-				);
-		TestObj.addGuitar(
-				"Test1123", // serial number
-				100.00, // store price
-				//"ABCD", // Manufacturer
-				manufacturer.Fender, // Manufacturer
-				"Stratocastor", // Manufacturer model
-				type.Electric, // Type of Guitar
-				backWood.Maple, // Face wood);, // Back wood
-				topWood.Maple
-		);
+		GuitarSpec testGuitarSpec = new GuitarSpec();
 		
-		Guitar testItem = new Guitar();
-		testItem.setType(type.Electric);;
-		testItem.setManufacturer(manufacturer.Fender);
-		testItem.setTopWood(topWood.Alder);
-		testItem.setBackWood(backWood.Alder);
-		testItem.setModel("XYZ");
-		Guitar returned = TestObj.search(testItem);
+		this.addGuitarSpec = new GuitarSpec(manufacturer.Fender, 
+				type.Electric, 
+				backWood.Alder, 
+				topWood.Alder, 
+				"Stratocaster");
+		this.addGuitarSpec2 = new GuitarSpec(manufacturer.Fender, 
+				type.Electric, 
+				backWood.Maple, 
+				topWood.Maple, 
+				"Stratocaster");
 		
-		assertSame("Test", returned.getSerialNumber());
+		TestObj.addGuitar("1700-400", 699.00, addGuitarSpec);
+		TestObj.addGuitar("1700-401", 699.00, addGuitarSpec2);
+	
+		testGuitarSpec.setType(type.Electric);
+		testGuitarSpec.setManufacturer(manufacturer.Fender);
+		testGuitarSpec.setTopWood(topWood.Alder);
+		testGuitarSpec.setBackWood(backWood.Alder);
+		testGuitarSpec.setModel("Stratocaster");
 		
+		Guitar returned = TestObj.search(testGuitarSpec);
+		assertSame("1700-400", returned.getSerialNumber());
 		
 	}
 	
-	
-	/**
-	 * This method is to Test the Search Guitar passing Guitar Specs using JUnit Test
-	 */
-	@Test
-	void testSearchGuitarSpecs() {
-		
-		Inventory TestObj = new Inventory();
-		GuitarSpec spec = new GuitarSpec();
-		spec.setManufacturer(manufacturer.Fender);
-		spec.setModel("Test");
-		spec.setTopWood(topWood.Alder);
-		spec.setBackWood(backWood.Cocobolo);
-		TestObj.addGuitarUsingSpecs(
-						"Testing", // serial number
-						100.00, // store price
-						spec //Guitar Spec
-				);
-		
-		
-		Guitar testItem = new Guitar();
-		testItem.setGuitarspec(spec);
-		
-		Guitar returned = TestObj.searchUsingSpecs(testItem);
-		
-		assertSame("Testing", returned.getSerialNumber());
-		
-		
-	}
 }

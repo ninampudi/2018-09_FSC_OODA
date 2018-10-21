@@ -2,6 +2,7 @@
  * Class: Object-Oriented Design and Analysis
  * Professor: Orlando Montalvo
  * Assignment: HW 1
+ * Student: Navya Inampudi
  * 
  * Date: 2018-09-03
  */
@@ -17,101 +18,63 @@ package HW1.edu.fitchburgstate.csc7400;
  */
 public class Guitar {
 
-	private manufacturer manufacturer;
-	private type type;
-	private backWood backWood;
-	private topWood topWood;
-	private GuitarSpec guitarspec;
+	private String serialNumber;
+	private String model;
+	private GuitarSpec guitarSpec;
 	
-	public GuitarSpec getGuitarspec() {
-		return guitarspec;
-	}
-
-
-	public void setGuitarspec(GuitarSpec guitarspec) {
-		this.guitarspec = guitarspec;
-	}
-
-
 	/**
-	 * Full constructor
+	 * Constructor to instantiate the Guitar Object
 	 * 
 	 * @param serialNumber manufacturer serial number
 	 * @param price store price
-	 * @param manufacturer the guitar's manufacturer
-	 * @param model the manufacturers model
-	 * @param type guitar type (electric/accoustic)
-	 * @param backWood the wood used for the guitar body
-	 * @param topWood the wood used for the guitar's face
+	 * @param guitarSpec contains guitar specs such as topWood, backWood, manufacturer
 	 */
-	public Guitar(String serialNumber, double price, 
-			manufacturer manufacturer, String model, 
-			type type, backWood backWood,
-			topWood topWood) {
+	public Guitar(String serialNumber, double price,
+			GuitarSpec guitarSpec) {
 		this.serialNumber = serialNumber;
 		this.price = price;
-		this.manufacturer = manufacturer;
-		this.model = model;
-		this.type = type;
-		this.backWood = backWood;
-		this.topWood = topWood;
+		this.guitarSpec = guitarSpec;
 	}
 	
+	/**
+	 * returns guitarSpec Object, contains information about below 
+	 * 		- Manufacturer
+	 * 		- Model
+	 * 		- Type
+	 * 		- Backwood
+	 * 		- TopWood
+	 */
+	public GuitarSpec getGuitarSpec() {
+		return guitarSpec;
+	}
+
+	/**
+	 * Set GuitarSpec Object
+	 */
+	public void setGuitarspec(GuitarSpec guitarspec) {
+		this.guitarSpec = guitarspec;
+	}
 	
+	/**
+	 * Retrieve Serial Number for the speicified Guitar
+	 */
 	public void setSerialNumber(String serialNumber) {
 		this.serialNumber = serialNumber;
 	}
 
-
+	/**
+	 * Set the model of the Guitar
+	 */
 	public void setModel(String model) {
 		this.model = model;
 	}
 
-
+	/**
+	 * Default Constructor
+	 */
 	public Guitar() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
-
-	public manufacturer getManufacturer() {
-		return manufacturer;
-	}
-
-
-	public void setManufacturer(manufacturer manufacturer) {
-		this.manufacturer = manufacturer;
-	}
-
-
-	public type getType() {
-		return type;
-	}
-
-
-	public void setType(type type) {
-		this.type = type;
-	}
-
-
-	public backWood getBackWood() {
-		return backWood;
-	}
-
-
-	public void setBackWood(backWood backWood) {
-		this.backWood = backWood;
-	}
-
-
-	public topWood getTopWood() {
-		return topWood;
-	}
-
-
-	public void setTopWood(topWood topWood) {
-		this.topWood = topWood;
-	}
-
 
 	/**
 	 * Returns the manufacturer serial number
@@ -146,85 +109,24 @@ public class Guitar {
 	}
 
 	
-
-	
-
-	/**
-	 * The guitars manufacturer serial number
-	 */
-	private String serialNumber;
-
-	/**
-	 * The name of the manufacturer
-	 */
-	public enum manufacturer{
-		Fender,
-		Martin,
-		Gibson,
-		Collings,
-		Olson,
-		Ryan,
-		PRS
-	}
-
-	/**
-	 * The manufacturer model number
-	 */
-	private String model;
-
-	/**
-	 * The guitar type (electric/acoustic)
-	 */
-	public enum type{
-		Electric,
-		Acoustic
-	};
-
-	/**
-	 * The wood used for the back of the guitar
-	 */
-	public enum backWood{
-		IndianRosewood,
-		BrazilianRosewood,
-		Mahogany,
-		Maple,
-		Cocobolo,
-		Cedar,
-		Adirondack,
-		Alder,
-		Sitka
-	};
-
-	/**
-	 * The wood used for the face of the guitar
-	 */
-	public enum topWood{
-		IndianRosewood,
-		BrazilianRosewood,
-		Mahogany,
-		Maple,
-		Cocobolo,
-		Cedar,
-		Adirondack,
-		Alder,
-		Sitka
-	};
-
 	/**
 	 * Rick's price for the guitar
 	 */
 	private double price;
 	
 	public boolean match(GuitarSpec g) {
-		if ((g.getManufacturer().equals(this.guitarspec.getManufacturer())) 
-			&& 	(g.getModel().equals(this.guitarspec.getModel()))
-			&& 	(g.getTopWood().equals(this.guitarspec.getTopWood()))
-			&& 	(g.getBackWood().equals(this.guitarspec.getBackWood()))
-				) {
-			return true;
-		} else {
-			return false;
-		}
+		boolean returnValue = false;
 		
+		if ( g == null )
+			return returnValue;
+		
+		if ( g.getManufacturer() == this.guitarSpec.getManufacturer() && 
+			 g.getModel() == this.guitarSpec.getModel() &&
+			 g.getTopWood() == this.guitarSpec.getTopWood() &&
+			 g.getBackWood() == this.guitarSpec.getBackWood() ) {
+			returnValue = true;
+		} 
+		
+		return returnValue;
 	}
 }

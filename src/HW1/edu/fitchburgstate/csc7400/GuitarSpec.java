@@ -1,17 +1,18 @@
+/**
+ * Class: Object-Oriented Design and Analysis
+ * Professor: Orlando Montalvo
+ * Assignment: HW 1
+ * Student: Navya Inampudi
+ * 
+ * Date: 2018-10-20
+ */
+
 package HW1.edu.fitchburgstate.csc7400;
 
-import HW1.edu.fitchburgstate.csc7400.Guitar.backWood;
-import HW1.edu.fitchburgstate.csc7400.Guitar.manufacturer;
-import HW1.edu.fitchburgstate.csc7400.Guitar.topWood;
-import HW1.edu.fitchburgstate.csc7400.Guitar.type;
 
 /**
- * @author Navya Inampudi
  * This class is a pojo class for GuitarSpec
- *
- */
-/**
- * @author Virat Samarth
+ * @author Navya Inampudi
  *
  */
 public class GuitarSpec {
@@ -23,8 +24,87 @@ public class GuitarSpec {
 	private String model;
 	
 	/**
-	 * Get method for Manufacturer
-	 * @return
+	 * Default constructor
+	 */
+	public GuitarSpec() {
+		super();
+	}
+
+	/**
+	 * Constructor, to instantiate GuitarSpec with below paramaters of Guitar
+	 * @param manufacturer the guitar's manufacturer
+	 * @param type guitar type (electric/accoustic)
+	 * @param backWood the wood used for the guitar body
+	 * @param topWood the wood used for the guitar's face
+	 * @param model the manufacturers model
+	 */
+	public GuitarSpec(manufacturer manufacturer,
+			type type,
+			backWood backWood,
+			topWood topWood, 
+			String model) {
+		super();
+		this.manufacturer = manufacturer;
+		this.type = type;
+		this.backWood = backWood;
+		this.topWood = topWood;
+		this.model = model;
+	}
+
+
+	/**
+	 * The name of the manufacturer
+	 */
+	public enum manufacturer{
+		Fender,
+		Martin,
+		Gibson,
+		Collings,
+		Olson,
+		Ryan,
+		PRS
+	}
+	
+	/**
+	 * The guitar type (electric/acoustic)
+	 */
+	public enum type{
+		Electric,
+		Acoustic
+	};
+
+	/**
+	 * The wood used for the back of the guitar
+	 */
+	public enum backWood{
+		IndianRosewood,
+		BrazilianRosewood,
+		Mahogany,
+		Maple,
+		Cocobolo,
+		Cedar,
+		Adirondack,
+		Alder,
+		Sitka
+	};
+
+	/**
+	 * The wood used for the face of the guitar
+	 */
+	public enum topWood{
+		IndianRosewood,
+		BrazilianRosewood,
+		Mahogany,
+		Maple,
+		Cocobolo,
+		Cedar,
+		Adirondack,
+		Alder,
+		Sitka
+	};
+	
+	/**
+	 * Return the Manufacturer of the Guitar
 	 */
 	public manufacturer getManufacturer() {
 		return manufacturer;
@@ -32,8 +112,7 @@ public class GuitarSpec {
 	
 	
 	/**
-	 * Set method for Manufacturer
-	 * @param manufacturer
+	 * Set the Manufacturer of the Guitar
 	 */
 	public void setManufacturer(manufacturer manufacturer) {
 		this.manufacturer = manufacturer;
@@ -41,8 +120,7 @@ public class GuitarSpec {
 	
 	
 	/**
-	 * Get type for Type
-	 * @return
+	 * Return type of the Guitar i.e., Acoustic Or Electric
 	 */
 	public type getType() {
 		return type;
@@ -50,8 +128,7 @@ public class GuitarSpec {
 	
 	
 	/**
-	 * Set method for type
-	 * @param type
+	 *  Set type of the Guitar.
 	 */
 	public void setType(type type) {
 		this.type = type;
@@ -59,8 +136,8 @@ public class GuitarSpec {
 	
 	
 	/**
-	 * Get method for BackWood
-	 * @return
+	 * Return the wood used on the back of the Guitar
+	 * 
 	 */
 	public backWood getBackWood() {
 		return backWood;
@@ -68,8 +145,7 @@ public class GuitarSpec {
 	
 	
 	/**
-	 * Set method for Backwood
-	 * @param backWood
+	 * Set the wood used on the back of the Guitar
 	 */
 	public void setBackWood(backWood backWood) {
 		this.backWood = backWood;
@@ -77,8 +153,7 @@ public class GuitarSpec {
 	
 	
 	/**
-	 * Get method for TopWood
-	 * @return
+	 * Return the wood used on the face of the Guitar
 	 */
 	public topWood getTopWood() {
 		return topWood;
@@ -86,8 +161,7 @@ public class GuitarSpec {
 	
 	
 	/**
-	 * Set method for TopWood
-	 * @param topWood
+	 * Set the wood used on the face of the Guitar
 	 */
 	public void setTopWood(topWood topWood) {
 		this.topWood = topWood;
@@ -95,8 +169,7 @@ public class GuitarSpec {
 	
 	
 	/**
-	 * Get method for Model
-	 * @return
+	 * Return the Manufacturer moded of the Guitar
 	 */
 	public String getModel() {
 		return model;
@@ -104,8 +177,7 @@ public class GuitarSpec {
 	
 	
 	/**
-	 * Set method for Model
-	 * @param model
+	 * Set the Manufacturer moded of the Guitar
 	 */
 	public void setModel(String model) {
 		this.model = model;

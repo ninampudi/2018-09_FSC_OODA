@@ -1,9 +1,27 @@
+/**
+ * Class: Object-Oriented Design and Analysis
+ * Professor: Orlando Montalvo
+ * Assignment: HW 1
+ * Student: Navya Inampudi
+ * 
+ * Date: 2018-10-20
+ */
+
 package HW1.edu.fitchburgstate.csc7400;
 
 import HW1.Guitar;
 import HW1.Inventory;
+
+/**
+ * FindGuitarTester searches the inventory by Guitar Manufacturer's for Erin
+ * @author Navya Inampudi
+ *
+ */
 public class FindGuitarTester {
 
+	/**
+	 * Search the inventory for the specified Manufactuer's 
+	 */
   public static void main(String[] args) {
     // Set up Rick's guitar inventory
     Inventory inventory = new Inventory();
@@ -24,6 +42,10 @@ public class FindGuitarTester {
     }
   }
 
+  /**
+   * Setup inventory with the list of Guitar's to be sold
+   * @param inventory Add Guitars to the inventory
+   */
   private static void initializeInventory(Inventory inventory) {
     inventory.addGuitar("11277", 3999.95, "Collings", "CJ", "acoustic",
                         "Indian Rosewood", "Sitka");
