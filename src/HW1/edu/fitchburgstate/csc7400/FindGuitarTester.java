@@ -20,7 +20,7 @@ import HW1.Inventory;
 public class FindGuitarTester {
 
 	/**
-	 * Search the inventory for the specified Manufactuer's 
+	 * Search the inventory for the specified Manufactuer's Name
 	 */
   public static void main(String[] args) {
     // Set up Rick's guitar inventory

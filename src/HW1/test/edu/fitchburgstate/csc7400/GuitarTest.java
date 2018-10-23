@@ -1,3 +1,12 @@
+/**
+ * Class: Object-Oriented Design and Analysis
+ * Professor: Orlando Montalvo
+ * Assignment: HW 1
+ * Student: Navya Inampudi
+ * 
+ * Date: 2018-10-20
+ */
+
 package HW1.test.edu.fitchburgstate.csc7400;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,16 +17,17 @@ import org.junit.jupiter.api.Test;
 import HW1.Guitar;
 
 /**
- * @author Navya Inampudi
- * This class is to JUnit Test for Guitar Class
+ *  JUnit Test for GuitarTest Class
+ *  @author Navya Inampudi
  */
 class GuitarTest {
 	
 	Guitar testGuitar;
 
 	/**
+	 *  Instantiate testGuitar Object, to be used for Validating for the below scenarios
 	 * @throws Exception
-	 * This method is to Set-up the guitar objects for testing
+	 * 
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
@@ -33,7 +43,7 @@ class GuitarTest {
 	}
 
 	/**
-	 * This method is to test the Serial Number JUnit Test.
+	 * this is to validate if SerialNumber can be retrieved from TestGuitar object
 	 */
 	@Test
 	void testGetSerialNumber() {
@@ -43,7 +53,7 @@ class GuitarTest {
 	}
 
 	/**
-	 * This method is to test the Price JUnit Test.
+	 * this is to validate if Price can be retrieved from TestGuitar object
 	 */
 	@Test
 	void testGetPrice() {
@@ -53,7 +63,7 @@ class GuitarTest {
 	}
 
 	/**
-	 * This method is to set the Price Test the Price using JUnit Test.
+	 * this is to validate if Price can be set to TestGuitar object
 	 */
 	@Test
 	void testSetPrice() {
@@ -64,7 +74,7 @@ class GuitarTest {
 	}
 
 	/**
-	 *  This method is to test the Manufacturer using JUnit Test.
+	 *  this is to validate if Manufacturer can be retrieved from TestGuitar object
 	 */
 	@Test
 	void testGetManufacturer() {
@@ -74,7 +84,7 @@ class GuitarTest {
 	}
 
 	/**
-	 * This method is to test the Model using JUnit Test.
+	 * this is to validate if Model can be retrieved from TestGuitar object
 	 */
 	@Test
 	void testGetModel() {
@@ -84,7 +94,7 @@ class GuitarTest {
 	}
 
 	/**
-	 * This method is to test the Type using JUnit Test.
+	 * this is to validate if Type can be retrieved from TestGuitar object
 	 */
 	@Test
 	void testGetType() {
@@ -94,7 +104,7 @@ class GuitarTest {
 	}
 
 	/**
-	 * This method is to test the BackWood using JUnit Test.
+	 * this is to validate if Backwood can be retrieved from TestGuitar object
 	 */
 	@Test
 	void testGetBackWood() {
@@ -104,7 +114,7 @@ class GuitarTest {
 	}
 
 	/**
-	 * This method is to test the TopWood using JUnit Test.
+	 * this is to validate if TopWood can be retrieved from TestGuitar object
 	 */
 	@Test
 	void testGetTopWood() {

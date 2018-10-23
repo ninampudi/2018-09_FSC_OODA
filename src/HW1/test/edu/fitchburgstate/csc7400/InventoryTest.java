@@ -34,7 +34,7 @@ class InventoryTest {
 	GuitarSpec testGuitarSpec, addGuitarSpec, addGuitarSpec2;
 	
 	/**
-	 * Instantiate testGuitar Object, to be used for Validating in below scenarios
+	 * Instantiate testGuitar Object, to be used for Validating for the below scenarios
 	 * @throws Exception
 	 */
 	@BeforeEach
@@ -52,7 +52,7 @@ class InventoryTest {
 
 	
 	/**
-	 * This method is to Test Add Guitar using JUnit Test
+	 * Tests addGuitar() by adding then getting.
 	 */
 	@Test
 	void testaddGuitar() {
@@ -75,7 +75,7 @@ class InventoryTest {
 	}
 	
 	/**
-	 * This method is to Test Add Multiple Guitar using JUnit Test
+	 * Tests testaddGuitarsMultiple() by adding multiple Guitar then getting.
 	 */
 	@Test
 	void testaddGuitarsMultiple() {
@@ -107,7 +107,7 @@ class InventoryTest {
 	
 	
 	/**
-	 * This method is to Test Get Guitar using JUnit Test
+	 * Tests testaddGuitarsMultiple() by adding multiple Guitar then getting.
 	 */
 	@Test
 	void testGetGuitars() {
@@ -136,7 +136,7 @@ class InventoryTest {
 	
 	
 	/**
-	 * This method is to Test the Search Guitar passing manufacturer using JUnit Test
+	 * Tests testSearchGuitars_manufacturer by searching TestObj with Manufacturer 
 	 */
 	@Test
 	void testSearchGuitars_manufacturer() {
@@ -165,8 +165,7 @@ class InventoryTest {
 	}
 	
 	/**
-	 * This method is to Test the Search Guitar passing manufacturer 
-	 * for multuple Guitar objects using JUnit Test
+	 * Tests testSearchGuitars_manufacturer2 by searching TestObj with Manufacturer
 	 */
 	@Test
 	void testSearchGuitars_manufacturer2() {
@@ -196,7 +195,7 @@ class InventoryTest {
 	}
 	
 	/**
-	 * This method is to Test the Search Guitar passing type using JUnit Test
+	 * Tests testSearchGuitars_type by searching TestObj with Type
 	 */
 	@Test
 	void testSearchGuitars_type() {
@@ -226,7 +225,7 @@ class InventoryTest {
 	}
 	
 	/**
-	 * This method is to Test the Search Guitar passing all enum parameters using JUnit Test
+	 * Tests testSearchGuitars_custom by searching TestObj with GuitarSpec (all the 5 of them)
 	 */
 	@Test
 	void testSearchGuitars_custom() {

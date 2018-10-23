@@ -38,11 +38,11 @@ public class Guitar {
 	
 	/**
 	 * returns guitarSpec Object, contains information about below 
-	 * 		- Manufacturer
-	 * 		- Model
-	 * 		- Type
-	 * 		- Backwood
-	 * 		- TopWood
+	 * 		- Manufacturer the guitar's manufacturer
+	 * 		- Model the manufacturers model
+	 * 		- Type guitar type (electric/accoustic)
+	 * 		- Backwood the wood used for the guitar body
+	 * 		- TopWood the wood used for the guitar's face
 	 */
 	public GuitarSpec getGuitarSpec() {
 		return guitarSpec;
@@ -56,7 +56,7 @@ public class Guitar {
 	}
 	
 	/**
-	 * Retrieve Serial Number for the speicified Guitar
+	 * Retrieve Serial Number for the specified Guitar
 	 */
 	public void setSerialNumber(String serialNumber) {
 		this.serialNumber = serialNumber;
@@ -114,6 +114,12 @@ public class Guitar {
 	 */
 	private double price;
 	
+	/**
+	 * Compares the Guitar Spec Object, if everything matches, returns true, else returns false
+	 * 
+	 * @param g pass GuitarSpec object
+	 * @return true if a match found, else false
+	 */
 	public boolean match(GuitarSpec g) {
 		boolean returnValue = false;
 		

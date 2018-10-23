@@ -50,6 +50,9 @@ public class Inventory {
   
   /**
    * Retrieves the Guitar from the inventory based on the serialNumber of the Guitar
+   * 
+   * @param serialNumber Retrieve the Guitar object based on the serialNumber from Inventory
+   * @return return Guitar object if a match found
    */
   public Guitar getGuitar(String serialNumber) {
 	  for (Iterator i = guitars.iterator(); i.hasNext(); ) {
@@ -64,7 +67,7 @@ public class Inventory {
    * This will search the inventory for the Guitar based on any combination of Guitar Specs
    * If a match found, returns the Guitar, Else Null
    * @param searchGuitar provide Guitar specs to search the inventory
-   * 
+   * @return return Guitar object if a match found
    */
   public Guitar search(GuitarSpec searchGuitarSpec) {
 	  

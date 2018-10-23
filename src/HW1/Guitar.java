@@ -3,6 +3,7 @@
  * Professor: Orlando Montalvo
  * Assignment: HW 1
  * 
+ * Student: Navya Inampudi
  * Date: 2018-09-03
  */
 
@@ -13,6 +14,7 @@ package HW1;
  * Rick's music store
  * 
  * @author HeadFirstOODA
+ * @author Navya Inampudi
  *
  */
 public class Guitar {

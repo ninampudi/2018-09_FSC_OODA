@@ -169,7 +169,7 @@ public class GuitarSpec {
 	
 	
 	/**
-	 * Return the Manufacturer moded of the Guitar
+	 * Return the Manufacturer model of the Guitar
 	 */
 	public String getModel() {
 		return model;
@@ -177,7 +177,7 @@ public class GuitarSpec {
 	
 	
 	/**
-	 * Set the Manufacturer moded of the Guitar
+	 * Set the Manufacturer model of the Guitar
 	 */
 	public void setModel(String model) {
 		this.model = model;
